@@ -14,7 +14,12 @@ import java.util.Date;
 @AllArgsConstructor
 public class Ride {
 
+    public Ride(String type) {
+        this.type = type;
+    }
+
     @Id
+
     @GeneratedValue
     private Long id;
     private String type;
@@ -34,6 +39,9 @@ public class Ride {
             inverseJoinColumns =
                     { @JoinColumn(name = "driver_id", referencedColumnName = "id") })
     private Driver driver;
+
+    @Embedded
+    private EmbadedTest embadedTest;
 
     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private Date started_at;

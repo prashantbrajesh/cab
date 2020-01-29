@@ -37,6 +37,15 @@ public  class LoginUser {
     @JoinColumn(name="location_id")
     private Location location;
 
+    @Embedded
+    private EmbadedTest embadedTest;
+
+    @Embedded
+    @AttributeOverrides({@AttributeOverride( name="x",column = @Column(name = "livex")),
+        @AttributeOverride(name="y",column = @Column(name = "livey"))})
+    private EmbadedTest embadedLive;
+
+
     @Entity
     @Getter
     @Setter
